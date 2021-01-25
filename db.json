@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "React Task Tracker",
+      "day": "24 Jan",
+      "reminder": true
+    },
+    {
+      "text": "React Task Testing",
+      "day": "26 Jan 2021",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "Reminder Test",
+      "day": "1 Jan 2021",
+      "reminder": false,
+      "id": 3
+    },
+    {
+      "text": "JSON local server",
+      "day": "10 Feb 2021",
+      "reminder": true,
+      "id": 4
+    }
+  ]
+}
