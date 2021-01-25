@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
+
+  // for Toggle Add task form 
+  const [showAddTask , setShowAddTask] = useState(false)
 
   const [tasks , setTasks ] = useState([
     {
@@ -28,6 +32,16 @@ function App() {
     },
 ])
 
+// Add Task
+const addTask = (task) => {
+  // Give a random id
+  const id = Math.floor(Math.random() * 10000) + 1
+  // console.log(id)
+  const newTask = { id, ...task}
+  // copy current tasks and add new one in a array 
+  setTasks([...tasks, newTask])
+}
+
 // Delete Task
   const deleteTask = (id) => {
     // console.log('delete' , id)
@@ -45,7 +59,14 @@ function App() {
 
   return (
     <div className="container">
-     <Header />
+     
+     <Header onAdd={() => setShowAddTask(!showAddTask)}
+        // Props for changing button text on toggle
+        showAdd = {showAddTask}
+     />
+
+    { showAddTask && <AddTask onAdd={addTask} />}
+
      {tasks.length > 0 ? <Tasks tasks={tasks} 
      onDelete={deleteTask}
      onToggle={toggleReminder} /> 
